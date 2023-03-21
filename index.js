@@ -1,12 +1,12 @@
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config()
 import express from "express";
 import { MongoClient } from "mongodb";
 import uniqid from 'uniqid';
 const app = express();
 
-const PORT = 4000;
-
-
 const MONGO_URL = "mongodb://127.0.0.1";
+const PORT = process.env.PORT;
 const client = new MongoClient(MONGO_URL); // dial
 // Top level await
 await client.connect(); // call
